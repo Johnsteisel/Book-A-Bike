@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   attr_writer :login
+  
+  has_many :bookings
 
   def login
     @login || self.username || self.email
@@ -20,4 +22,5 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
 end
