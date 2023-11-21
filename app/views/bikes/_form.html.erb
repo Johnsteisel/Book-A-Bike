@@ -1,0 +1,12 @@
+  <div class="mx-auto" style="width: 30rem">
+    <%= simple_form_for(bike) do |f| %>
+      <%= f.input :name, input_html: {class: 'bg-info'}%>
+      <%= f.input :category, collection: ["Road", "Gravel", "Mountain", "Racing-bike", "Kids", "Tandem"], input_html: {class: 'bg-info'} %>
+      <%= f.input :price_per_day, input_html: {class: 'bg-info custom-range'} %>
+      <%= f.input :size, collection: ["Adult", "Teen", "Kids"], input_html: {class: 'bg-info'}%>
+      <%= f.input :description, input_html: {class: 'bg-info'} %>
+      <%= f.input :address, input_html: {class: 'bg-info'} %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create New Bike", class:"btn btn-dark"%>
+    <% end %>
+  </div>

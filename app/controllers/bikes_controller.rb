@@ -14,8 +14,12 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    @bike.save
-    redirect_to bike_path(@bike)
+    @bike.user_id = current_user.id
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -23,7 +27,12 @@ class BikesController < ApplicationController
 
   def update
     @bike.update(bike_params)
-    redirect_to bike_path(@bike)
+
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -38,6 +47,6 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:category, :price_per_day, :avg_rating, :size, :description, :address)
+    params.require(:bike).permit(:name, :category, :price_per_day, :avg_rating, :size, :description, :address, :photo)
   end
 end
