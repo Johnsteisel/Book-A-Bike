@@ -1,13 +1,19 @@
 <div class="container ">
   <div class="d-flex flex-row">
     <div class="mr-3">
-      <%= image_tag "bike-icon.png", alt: "default bike picture", class: "bike-img" %>
+      <% if @bike.photo.key %>
+        <%= cl_image_tag @bike.photo.key, alt: @bike.name, class: "bike-img" %>
+      <% else %>
+        <%= image_tag "bike-icon.png", alt: "default bike picture", class: "bike-img" %>
+      <% end %>
     </div>
     <div class="mt-3 flex-grow-1">
       <div class="d-flex justify-content-between">
         <div class="d-flex align-items-baseline">
           <h2><%= @bike.name.capitalize %></h2>
-          <h3> - <%= @bike.avg_rating %> ⭐</h3>
+          <% if @bike.avg_rating != nil %>
+            <h3> - <%= @bike.avg_rating %> ⭐</h3>
+          <% end %>
         </div>
         <h1><%= @bike.price_per_day %>€/day</h1>
       </div>
