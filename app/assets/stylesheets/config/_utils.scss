@@ -1,0 +1,13 @@
+.inherit-all {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+.hover-big {
+  transition: 0.3s;
+}
+
+.hover-big:hover {
+  scale: 1.03;
+}

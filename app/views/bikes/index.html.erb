@@ -1,1 +1,35 @@
-<h1>Hello World!</h1>
+<div class="container">
+  <div class="row">
+    <% @bikes.each do |bike| %>
+      <div class="col-12 col-lg-4 col-xl-3 col-md-6">
+        <%= link_to bike_path(bike), class: "inherit-all" do %>
+          <div class="card my-3 bg-white rounded shadow-sm h-100 hover-big">
+            <%= image_tag "bike-icon.png", alt: "default bike", class: "rounded-top" %>
+            <div class="card-img-overlay">
+              <div class="d-flex justify-content-end align-items-end">
+                <div>
+                  <p class="btn btn-primary">€<%= bike.price_per_day.round(2) %></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="card-title fw-bold"><%= bike.name %></h3>
+                <p><%= bike.avg_rating.round(1) %> <i class="fa-solid fa-star" style="color: #ffcf4d;"></i></p>
+
+              </div>
+              <p class="card-subtitle pb-1"><%= bike.category %></p>
+              <p class="card-text"><%= bike.description %></p>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+              <p class="fw-light fs-6">Distance</p>
+              <%# distance is a placeholder %>
+              <p class="fw-light fs-6"><%= bike.user.username %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
