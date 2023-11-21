@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a href="#" class="btn btn-secondary me-4">Add a bike</a>
+            <%= link_to "Add a bike", new_bike_path, class: "btn btn-secondary" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="text-secondary nav-link" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
