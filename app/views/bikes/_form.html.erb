@@ -1,6 +1,10 @@
-<%= simple_form_for(bike) do |f| %>
-  <%= f.input : %>
-  <%= f.input :address %>
-  <%= f.input :rating %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(bike) do |f| %>
+    <%= f.input :name, class: 'bg-white' %>
+    <%= f.input :category %>
+    <%= f.input :price_per_day %>
+    <%= f.input :avg_rating, hint: 'Between 0-5.'%>
+    <%= f.input :size %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.submit %>
+  <% end %>
