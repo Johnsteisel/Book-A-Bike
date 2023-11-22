@@ -1,3 +1,4 @@
+<%= render "shared/back" %>
 <div class="container ">
   <div class="d-flex flex-row">
     <div class="mr-3">
@@ -46,14 +47,14 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <div class="btn-edit py-2">
-    <% if current_user == @bike.user %>
-      <%= link_to 'Edit My Bike', edit_bike_path(@bike) , class: "btn btn-dark"%>
-    <% end %>
-  </div>
-  <div class="btn-delete py-2">
-    <% if current_user == @bike.user %>
-      <%= link_to 'Delete', bike_path , data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-    <% end %>
-  </div>
+  <% if current_user == @bike.user %>
+    <div class="d-flex gap-2">
+      <div class="btn-edit py-2">
+        <%= link_to 'Edit My Bike', edit_bike_path(@bike) , class: "btn btn-dark"%>
+      </div>
+      <div class="btn-delete py-2">
+        <%= link_to 'Delete', bike_path , data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-white" %>
+      </div>
+    </div>
+  <% end %>
 </div>
