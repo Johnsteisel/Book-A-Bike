@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bikes do
     resources :bookings, only: :create
   end
+  resources :bookings, only: %i(index)
   # Defines the root path route ("/")
   # root "posts#index"
 end
