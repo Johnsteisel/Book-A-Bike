@@ -1,7 +1,17 @@
 class Bike < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews
   has_one_attached :photo, dependent: :destroy
   validates :name, :category, :price_per_day, :size, :description, :address, presence: true
   validates :name, uniqueness: true
+
+  def avg_rating
+    if self.reviews.count == 0
+      nil
+    else
+      reviews = self.reviews.map { |review| review.rating }
+      reviews.sum / reviews.length
+    end
+  end
 end
