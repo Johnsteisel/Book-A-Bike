@@ -6,6 +6,9 @@ class BikesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @booking = Booking.new
+
     @marker =
       if @bike.latitude && @bike.longitude
         {
@@ -13,7 +16,6 @@ class BikesController < ApplicationController
           lng: @bike.longitude
         }
       end
-    @booking = Booking.new
   end
 
   def new
