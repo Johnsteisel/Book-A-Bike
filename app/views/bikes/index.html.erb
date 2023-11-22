@@ -5,9 +5,9 @@
         <%= link_to bike_path(bike), class: "inherit-all" do %>
           <div class="card my-3 bg-white rounded shadow-sm h-100 hover-big">
             <% if bike.photo.key %>
-              <%= cl_image_tag bike.photo.key, alt: bike.name, class: "card-img-top" %>
+              <%= cl_image_tag bike.photo.key, alt: bike.name, class: "card-img-top index-img" %>
             <% else %>
-              <%= image_tag "bike-icon.png", alt: "default bike", class: "card-img-top" %>
+              <%= image_tag "bike-icon.png", alt: "default bike", class: "card-img-top index-img" %>
             <% end %>
             <div class="card-img-overlay">
               <div class="d-flex justify-content-end align-items-end">

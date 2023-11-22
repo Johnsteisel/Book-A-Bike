@@ -6,14 +6,17 @@ class BikesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @booking = Booking.new
+
     @marker =
       if @bike.latitude && @bike.longitude
         {
           lat: @bike.latitude,
-          lng: @bike.longitude
+          lng: @bike.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { bike: @bike })
         }
       end
-    @booking = Booking.new
   end
 
   def new

@@ -20,9 +20,10 @@ export default class extends Controller {
   }
 
   #addMarkerToMap() {
+    const popup = new mapboxgl.Popup().setHTML(this.markerValue.info_window_html)
     new mapboxgl.Marker()
       .setLngLat([this.markerValue.lng, this.markerValue.lat])
-      // .setPopup(popup)
+      .setPopup(popup)
       .addTo(this.map);
   }
 
