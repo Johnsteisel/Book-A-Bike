@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   attr_writer :login
-  
+
   has_many :bookings
+  has_many :reviews
 
   def login
     @login || self.username || self.email
