@@ -40,4 +40,14 @@
     <%= f.submit %>
   <% end %>
 
+  <div class="btn-edit py-2">
+    <% if current_user == @bike.user %>
+      <%= link_to 'Edit My Bike', edit_bike_path(@bike) , class: "btn btn-dark"%>
+    <% end %>
+  </div>
+  <div class="btn-delete py-2">
+    <% if current_user == @bike.user %>
+      <%= link_to 'Delete', bike_path , data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <% end %>
+  </div>
 </div>
