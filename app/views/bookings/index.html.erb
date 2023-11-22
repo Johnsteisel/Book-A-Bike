@@ -1,0 +1,74 @@
+<div class="container my-3">
+  <h1>Bookings</h1>
+
+  <div class="row my-3">
+    <% @bookings.each do |booking| %>
+      <div class="col-12 col-xl-6 my-3">
+        <div class="card bg-white mx-auto shadow-sm" style="max-width: 40rem; height: 14rem;">
+          <div class="row g-0 h-100">
+            <div class="col-4 h-100">
+              <% if booking.bike.photo.key %>
+                <%= cl_image_tag booking.bike.photo.key, alt: booking.bike.name, class: "img-fill rounded-start" %>
+              <% else %>
+                <%= image_tag "bike-icon.png", alt: "default bike picture", class: "img-fill rounded-start" %>
+              <% end %>
+            </div>
+            <div class="col-8 h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <%= link_to bike_path(booking.bike), class: "inherit-all" do %>
+                    <h5 class="card-title text-break"><%= booking.bike.name %></h5>
+                  <% end %>
+                  <p class="card-text fw-semibold">€<%= booking.total_price %></p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="card-text fs-6">Booking #<%= booking.id %></p>
+                  <p class="card-text text-break">Owner: <%= booking.bike.user.username %></p>
+                </div>
+                <p class="card-text text-break fs-6">Pick-Up/Drop-Off: <%= booking.bike.address %></p>
+                <p class="card-text"><%= booking.start_time.strftime("Start time: %I:%M%p on %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.end_time.strftime("End time: %I:%M%p on %d/%m/%Y") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <h2>Past Bookings</h2>
+  <div class="row my-3">
+    <% @past_bookings.each do |booking| %>
+      <div class="col-12 col-xl-6 my-3">
+        <div class="card bg-white mx-auto shadow-sm" style="max-width: 40rem; height: 14rem;">
+          <div class="row g-0 h-100">
+            <div class="col-4 h-100">
+              <% if booking.bike.photo.key %>
+                <%= cl_image_tag booking.bike.photo.key, alt: booking.bike.name, class: "img-fill rounded-start" %>
+              <% else %>
+                <%= image_tag "bike-icon.png", alt: "default bike picture", class: "img-fill rounded-start" %>
+              <% end %>
+            </div>
+            <div class="col-8 h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <%= link_to bike_path(booking.bike), class: "inherit-all" do %>
+                    <h5 class="card-title text-break"><%= booking.bike.name %></h5>
+                  <% end %>
+                  <p class="card-text fw-semibold">€<%= booking.total_price %></p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="card-text fs-6">Booking #<%= booking.id %></p>
+                  <p class="card-text text-break">Owner: <%= booking.bike.user.username %></p>
+                </div>
+                <p class="card-text text-break fs-6">Pick-Up/Drop-Off: <%= booking.bike.address %></p>
+                <p class="card-text"><%= booking.start_time.strftime("Start time: %I:%M%p on %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.end_time.strftime("End time: %I:%M%p on %d/%m/%Y") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
