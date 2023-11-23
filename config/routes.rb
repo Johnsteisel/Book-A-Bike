@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
     resources :reviews, only: %i[create]
   end
-  resources :bookings, only: %i(index)
+  resources :bookings, only: %i(index destroy)
+  resources :reviews, only: %i(destroy)
   # Defines the root path route ("/")
   # root "posts#index"
 end
