@@ -1,0 +1,27 @@
+.hover-show-child {
+  .row {
+    .col-8 {
+      .card-body {
+        .carrot {
+          .visible-on-hover {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hover-show-child:hover {
+  .row {
+    .col-8 {
+      .card-body {
+        .carrot {
+          .visible-on-hover {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
