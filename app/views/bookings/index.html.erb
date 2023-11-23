@@ -1,14 +1,14 @@
 <%= render "shared/back" %>
 <div class="container">
-  <h1>Bookings</h1>
   <div class="row mx-auto" style="max-width: 900px;">
+    <h1>Bookings</h1>
     <% @bookings.each do |booking| %>
       <%= render 'bookings/card', booking: booking %>
     <% end %>
   </div>
   <br>
-  <h2>Past Bookings</h2>
-  <div class="row my-3">
+  <div class="row mx-auto" style="max-width: 900px;">
+    <h2>Past Bookings</h2>
     <% @past_bookings.each do |booking| %>
       <%= render 'bookings/card', booking: booking %>
     <% end %>
