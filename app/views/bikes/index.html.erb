@@ -3,11 +3,11 @@
     <% @bikes.each do |bike| %>
       <div class="col-12 col-lg-4 col-xl-3 col-md-6 my-3">
         <%= link_to bike_path(bike), class: "inherit-all" do %>
-          <div class="card my-3 bg-white rounded shadow-sm h-100 hover-big">
-            <% if bike.photo.key %>
-              <%= cl_image_tag bike.photo.key, alt: bike.name, class: "card-img-top index-img" %>
+          <div class="card my-3 bg-white shadow-sm h-100 hover-big br-10">
+            <% if bike.photos[0] %>
+              <%= cl_image_tag bike.photos[0].key, alt: bike.name, class: "card-img-top index-img br-t-10" %>
             <% else %>
-              <%= image_tag "bike-icon.png", alt: "default bike", class: "card-img-top index-img" %>
+              <%= image_tag "bike-icon.png", alt: "default bike", class: "card-img-top index-img br-t-10" %>
             <% end %>
             <div class="card-img-overlay">
               <div class="d-flex justify-content-end align-items-end">

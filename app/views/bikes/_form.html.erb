@@ -3,7 +3,7 @@
     <%= f.input :name, input_html: {class: 'bg-info'}%>
     <%= f.input :category, collection: ["Road", "Gravel", "Mountain", "Racing-bike", "Kids", "Tandem"], input_html: {class: 'bg-info'} %>
     <%= f.input :price_per_day, input_html: {class: 'bg-info custom-range', min: 0} %>
-     <%= f.input :size, collection: ["Adult", "Teen", "Kids"], input_html: {class: 'bg-info custom-select'}%>
+    <%= f.input :size, collection: ["Adult", "Teen", "Kids"], input_html: {class: 'bg-info custom-select'}%>
     <%= f.input :description, input_html: {class: 'bg-info'} %>
     <%= f.input :address,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},

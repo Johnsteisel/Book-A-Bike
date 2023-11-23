@@ -1,4 +1,4 @@
-<div class="card bg-white mx-auto shadow-sm my-3">
+<div class="card bg-white mx-auto shadow-sm my-3 br-10">
   <div class="card-body px-4">
     <div class="d-flex justify-content-between">
       <h3 class="card-title"><%= review.user.username %></h3>
@@ -7,7 +7,14 @@
     <p class="card-text text-break">
       <%= review.comment %>
     </p>
-    <div class="d-flex justify-content-end p-0">
+    <div class="d-flex justify-content-between p-0">
+      <div class="">
+        <% if current_user == review.user %>
+          <%= link_to review_path(review.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-white" do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </div>
       <p class='p-0 m-0'><%= review.created_at.strftime("%d/%m/%Y") %></p>
     </div>
   </div>
