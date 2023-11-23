@@ -1,8 +1,8 @@
 .mapboxgl-ctrl-geocoder {
-  color:white;
+  color: white;
   border-radius: 1px;
   background-color: $light-gray;
-  width: 800px;
-  box-shadow:none;
-
+  max-width: none;
+  width: 100% !important;
+  box-shadow: none !important;
 }
