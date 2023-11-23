@@ -17,6 +17,10 @@ class BikesController < ApplicationController
           info_window_html: render_to_string(partial: "info_window", locals: { bike: @bike })
         }
       end
+
+    @booked_dates = @bike.bookings.pluck(:start_time, :end_time).map do |start_time, end_time|
+      { from: start_time, to: end_time }
+    end
   end
 
   def new
