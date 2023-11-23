@@ -22,6 +22,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @bike = @review.bike
+    @review.destroy
+
+    redirect_to bike_path(@bike), status: :see_other
+  end
+
   private
 
   def review_params
