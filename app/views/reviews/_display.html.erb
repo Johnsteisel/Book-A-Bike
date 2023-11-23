@@ -9,7 +9,7 @@
     </p>
     <div class="d-flex justify-content-between p-0">
       <div class="">
-        <% if current_user = review.user %>
+        <% if current_user == review.user %>
           <%= link_to review_path(review.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-white" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
           <% end %>
