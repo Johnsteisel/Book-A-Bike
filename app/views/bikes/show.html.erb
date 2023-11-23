@@ -45,24 +45,8 @@
   <div class="show-card">
     <h3>Book this bike!</h3>
     <div class="d-flex">
-      <%= simple_form_for [@bike, @booking] do |f| %>
-        <div class="d-flex">
-          <div>
-            <%= f.input :start_time,
-                      as: :string,
-                      input_html: { data: { controller: "datepicker" }, class: 'bg-info' }%>
-          </div>
-          <div class="mx-4">
-            <%= f.input :end_time,
-                      as: :string,
-                      input_html: { data: { controller: "datepicker" }, class: 'bg-info' } %>
-          </div>
-        </div>
-        <div>
-          <%= f.submit 'Create booking', class: 'btn btn-secondary' %>
-        </div>
-      <% end %>
-  </div>
+      <%= render 'date_picker', bike: @bike, booking: @booking %>
+    </div>
   </div>
 
   <% unless (@bike.bookings.where("user_id = ? AND end_time < ?", current_user, Time.now).length == 0) || (@bike.reviews.where("user_id = ?", current_user).length != 0) %>

@@ -27,8 +27,8 @@
                   <p class="card-text text-break">Owner: <%= booking.bike.user.username %></p>
                 </div>
                 <p class="card-text text-break fs-6">Pick-Up/Drop-Off: <%= booking.bike.address %></p>
-                <p class="card-text"><%= booking.start_time.strftime("Start time: %I:%M%p on %d/%m/%Y") %></p>
-                <p class="card-text"><%= booking.end_time.strftime("End time: %I:%M%p on %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.start_time.strftime("From %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.end_time.strftime("To %d/%m/%Y") %></p>
               </div>
             </div>
           </div>
@@ -63,8 +63,8 @@
                   <p class="card-text text-break">Owner: <%= booking.bike.user.username %></p>
                 </div>
                 <p class="card-text text-break fs-6">Pick-Up/Drop-Off: <%= booking.bike.address %></p>
-                <p class="card-text"><%= booking.start_time.strftime("Start time: %I:%M%p on %d/%m/%Y") %></p>
-                <p class="card-text"><%= booking.end_time.strftime("End time: %I:%M%p on %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.start_time.strftime("From %d/%m/%Y") %></p>
+                <p class="card-text"><%= booking.end_time.strftime("To %d/%m/%Y") %></p>
               </div>
             </div>
           </div>

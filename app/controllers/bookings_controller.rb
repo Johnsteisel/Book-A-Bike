@@ -5,7 +5,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    start_date, end_date = booking_params[:booking_period].split(' to ')
+
+    start_time = DateTime.parse(start_date)
+    end_time = DateTime.parse(end_date)
+
+    @booking = Booking.new(start_time: start_time, end_time: end_time)
     @bike = Bike.find(params[:bike_id])
     @user = current_user
     @booking.bike = @bike
@@ -27,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:booking_period)
   end
 end
