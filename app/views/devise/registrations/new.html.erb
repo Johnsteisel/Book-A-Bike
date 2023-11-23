@@ -24,13 +24,13 @@
                     input_html: { autocomplete: "new-password", class: "bg-info" } %>
       </div>
 
-      <div class="my-3form-actions text-center rounded">
+      <div class="my-3form-actions text-center rounded d-grid gap-2">
         <%= f.button :submit, "Sign Up", class: "btn btn-dark" %>
       </div>
     <% end %>
 
     <div class="my-2 text-center">
-      <%= render "devise/shared/links" %>
+      <p>Already have an account?<%= render "devise/shared/links" %></p>
     </div>
   </div>
 </div>

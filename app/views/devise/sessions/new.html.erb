@@ -17,12 +17,12 @@
         <%= f.input :remember_me, input_html: { class: "bg-dark" }, as: :boolean if devise_mapping.rememberable? %>
       </div>
       <div class="text-center">
-          <div class="form-actions">
+          <div class="form-actions d-grid gap-2">
             <%= f.button :submit, "Log In", class: "btn btn-dark" %>
           </div>
         <% end %>
         <div class="py-2">
-          <%= render "devise/shared/links" %>
+          <p>Don't have an account?<%= render "devise/shared/links" %></p>
         </div>
       </div>
   </div>
