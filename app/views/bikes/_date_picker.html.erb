@@ -1,9 +1,9 @@
-      <%= simple_form_for [bike, booking] do |f| %>
-        <%= f.input :start_time,
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" }, class: 'bg-info w-100' }%>
-        <%= f.input :end_time,
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" }, class: 'bg-info w-100' } %>
-        <%= f.submit 'Create booking', class: 'btn btn-primary' %>
-      <% end %>
+<%= simple_form_for [bike, booking] do |f| %>
+  <%= f.input :booking_period,
+            as: :string,
+            input_html: { data: { controller: "datepicker", datepicker_booked_dates: @booked_dates.to_json }, class: 'bg-info w-100' }%>
+  <%# <%= f.input :end_time,
+            as: :string,
+            input_html: { data: { controller: "datepicker", datepicker_booked_dates: @booked_dates.to_json }, class: 'bg-info w-100' } %>
+  <%= f.submit 'Create booking', class: 'btn btn-primary' %>
+<% end %>
