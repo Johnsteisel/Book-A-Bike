@@ -1,8 +1,8 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+<div id="carouselExampleControls" class="carousel slide h-100" data-bs-ride="carousel">
+  <div class="carousel-inner img-fill-h br-l-10">
     <% bike.photos.each_with_index do |photo, index| %>
-      <div class="carousel-item <%= "active" if index.zero? %>">
-        <%= cl_image_tag photo.key, alt: bike.name, class: 'img-fill br-l-10' %>
+      <div class="carousel-item <%= "active" if index.zero? %> img-fill-h">
+        <%= cl_image_tag photo.key, alt: bike.name, class: 'w-100 img-fill' %>
       </div>
     <% end %>
   </div>

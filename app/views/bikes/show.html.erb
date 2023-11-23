@@ -1,7 +1,7 @@
 <%= render "shared/back" %>
 <div class="container-show">
-  <div class="row justify-content-md-center show-card">
-    <div class="col-5 img-fluid p-0">
+  <div class="row justify-content-md-center show-card" style="height: 300px">
+    <div class="col-5 p-0 h-100">
       <% if @bike.photos.length == 0 %>
         <%= image_tag "bike-icon.png", alt: "default bike picture", class: "img-fill br-l-10" %>
       <% elsif @bike.photos.length == 1 %>
