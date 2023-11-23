@@ -2,10 +2,12 @@
 <div class="container-show">
   <div class="row justify-content-md-center show-card">
     <div class="col-5 img-fluid p-0">
-      <% if @bike.photo.key %>
-        <%= cl_image_tag @bike.photo.key, alt: @bike.name, class:'img-fill br-l-10' %>
-      <% else %>
+      <% if @bike.photos.length == 0 %>
         <%= image_tag "bike-icon.png", alt: "default bike picture", class: "img-fill br-l-10" %>
+      <% elsif @bike.photos.length == 1 %>
+       <%= cl_image_tag @bike.photos[0].key, alt: @bike.name, class:'img-fill br-l-10' %>
+      <% else %>
+        <%= render "carousel", bike: @bike %>
       <% end %>
     </div>
     <div class="col-7 p-4">
