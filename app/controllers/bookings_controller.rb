@@ -6,24 +6,30 @@ class BookingsController < ApplicationController
 
   def create
     start_date, end_date = booking_params[:booking_period].split(' to ')
-
-    start_time = DateTime.parse(start_date)
-    end_time = DateTime.parse(end_date)
-
-    @booking = Booking.new(start_time: start_time, end_time: end_time)
     @bike = Bike.find(params[:bike_id])
-    @user = current_user
-    @booking.bike = @bike
-    @booking.user = @user
 
-    if @booking.valid?
-      @days = (@booking.end_time - @booking.start_time) / (60 * 60 * 24)
-      @booking.total_price = @bike.price_per_day * @days
-      @booking.save
-      redirect_to bookings_path
-    else
+    if start_date.nil? || end_date.nil?
+      @booking = Booking.new
       render "bikes/show", status: :unprocessable_entity
+    else
+      start_time = DateTime.parse(start_date)
+      end_time = DateTime.parse(end_date)
+
+      @booking = Booking.new(start_time: start_time, end_time: end_time)
+      @user = current_user
+      @booking.bike = @bike
+      @booking.user = @user
+
+      if @booking.valid?
+        @days = (@booking.end_time - @booking.start_time) / (60 * 60 * 24)
+        @booking.total_price = @bike.price_per_day * @days
+        @booking.save
+        redirect_to bookings_path
+      else
+        render "bikes/show", status: :unprocessable_entity
+      end
     end
+
   end
 
   def destroy

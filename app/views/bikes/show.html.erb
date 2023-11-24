@@ -50,9 +50,9 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="show-card p-4 my-3">
+  <div class="show-card p-4 my-3 d-flex flex-column align-items-center">
     <h3>Book this bike!</h3>
-    <div class="d-flex">
+    <div>
       <%= render 'bikes/date_picker', bike: @bike, booking: @booking %>
     </div>
   </div>
