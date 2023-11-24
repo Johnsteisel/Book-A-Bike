@@ -1,40 +1,7 @@
 <div class="container">
   <div class="row">
     <% @bikes.each do |bike| %>
-      <div class="col-12 col-lg-4 col-xl-3 col-md-6 my-3">
-        <%= link_to bike_path(bike), class: "inherit-all" do %>
-          <div class="card my-3 bg-white shadow-sm h-100 hover-big br-10">
-            <% if bike.photos[0] %>
-              <%= cl_image_tag bike.photos[0].key, alt: bike.name, class: "card-img-top index-img br-t-10" %>
-            <% else %>
-              <%= image_tag "bike-icon.png", alt: "default bike", class: "card-img-top index-img br-t-10" %>
-            <% end %>
-            <div class="card-img-overlay">
-              <div class="d-flex justify-content-end align-items-end">
-                <div>
-                  <p class="btn btn-primary">€<%= bike.price_per_day.round(2) %></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-body px-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title fw-bold text-break"><%= bike.name %></h3>
-                <% if bike.avg_rating != nil %>
-                  <p><%= bike.avg_rating.round(1) %> <i class="fa-solid fa-star" style="color: #ffcf4d"></i></p>
-                <% end %>
-
-              </div>
-              <p class="card-subtitle pb-1"><%= bike.category %></p>
-              <p class="card-text text-break"><%= bike.description %></p>
-            </div>
-            <div class="d-flex justify-content-end px-3">
-              <%# <p class="fw-light fs-6">Distance</p> %>
-              <%# distance is a placeholder %>
-              <p class="fw-light fs-6 text-break"><%= bike.user.username %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render "bikes/card", bike: bike %>
     <% end %>
   </div>
 </div>
