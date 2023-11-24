@@ -5,4 +5,16 @@
   max-width: none;
   width: 100% !important;
   box-shadow: none !important;
+
+  :focus-visible {
+    border-radius: 2px;
+    outline: .25rem solid rgba($primary, .25) !important;
+  }
 }
+
+
+// $focus-ring-width:      .25rem;
+// $focus-ring-opacity:    .25;
+// $focus-ring-color:      rgba($primary, $focus-ring-opacity);
+// $focus-ring-blur:       0;
+// $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
