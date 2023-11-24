@@ -1,5 +1,10 @@
 <div class="col-12 my-3">
-  <div class="card bg-white mx-auto shadow-sm br-10 hover-show-child" style="height: 14rem;">
+  <div class="card bg-white mx-auto shadow-sm br-10 dad-hover" style="height: 14rem;">
+    <div class="visible-on-hover">
+      <%= link_to booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete this?"}, class: "btn btn-danger text-white" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
     <div class="row g-0 h-100">
       <div class="col-4 h-100">
         <% if booking.bike.photos[0] %>
@@ -22,14 +27,7 @@
           </div>
           <p class="card-text text-break fs-6">Pick-Up/Drop-Off: <%= booking.bike.address %></p>
           <p class="card-text"><%= booking.start_time.strftime("From %d/%m/%Y") %></p>
-          <div class="d-flex justify-content-between carrot">
-            <p class="card-text"><%= booking.end_time.strftime("To %d/%m/%Y") %></p>
-            <div class="visible-on-hover">
-              <%= link_to booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete this?"}, class: "btn btn-danger text-white" do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              <% end %>
-            </div>
-          </div>
+          <p class="card-text"><%= booking.end_time.strftime("To %d/%m/%Y") %></p>
         </div>
       </div>
     </div>
