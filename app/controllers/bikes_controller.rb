@@ -3,6 +3,9 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
   def index
     @bikes = Bike.all
+    if params[:query].present?
+      @bikes = Bike.global_search(params[:query])
+    end
   end
 
   def show

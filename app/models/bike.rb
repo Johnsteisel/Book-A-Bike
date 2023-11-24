@@ -8,6 +8,18 @@ class Bike < ApplicationRecord
   validates :name, :category, :price_per_day, :size, :description, :address, presence: true
   validates :name, uniqueness: true
 
+  include PgSearch::Model
+  multisearchable against: [:name, :category, :size]
+
+  pg_search_scope :global_search,
+  against: [ :name, :category, :size ],
+  associated_against: {
+    user: [:username]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
   def avg_rating
     if self.reviews.count == 0
       nil
