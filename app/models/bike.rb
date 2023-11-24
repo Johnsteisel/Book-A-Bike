@@ -25,7 +25,7 @@ class Bike < ApplicationRecord
       nil
     else
       reviews = self.reviews.map { |review| review.rating }
-      reviews.sum / reviews.length
+      reviews.sum.fdiv(reviews.length)
     end
   end
 end
