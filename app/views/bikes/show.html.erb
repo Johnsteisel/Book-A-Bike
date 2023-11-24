@@ -1,21 +1,21 @@
 <%= render "shared/back" %>
 <div class="container-show">
   <div class="row justify-content-md-center show-card" style="height: 300px">
-    <div class="col-5 p-0 h-100">
+    <div class="col-lg-5 p-0 h-100">
       <% if @bike.photos.length == 0 %>
         <%= image_tag "bike-icon.png", alt: "default bike picture", class: "img-fill br-l-10" %>
       <% elsif @bike.photos.length == 1 %>
-       <%= cl_image_tag @bike.photos[0].key, alt: @bike.name, class:'img-fill br-l-10' %>
+        <%= cl_image_tag @bike.photos[0].key, alt: @bike.name, class:'img-fill br-l-10' %>
       <% else %>
         <%= render "carousel", bike: @bike %>
       <% end %>
     </div>
-    <div class="col-7 p-4">
+    <div class="col-lg-7 p-4">
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="text-center"><strong><%= @bike.name.capitalize %></strong></h1>
         <div>
           <% if @bike.avg_rating != nil %>
-            <h3> <%= @bike.avg_rating %> ⭐</h3>
+            <h3> <%= @bike.avg_rating %> <i class="fa-solid fa-star" style="color: #ffcf4d"></i></h3>
           <% end %>
         </div>
       </div>
@@ -58,13 +58,17 @@
   </div>
 
   <% unless (@bike.bookings.where("user_id = ? AND end_time < ?", current_user, Time.now).length == 0) || (@bike.reviews.where("user_id = ?", current_user).length != 0) %>
-    <%= render "reviews/form", bike: @bike, review: @review %>
+    <div class="show-card">
+      <%= render "reviews/form", bike: @bike, review: @review %>
+    </div>
   <% end %>
+
 
   <h2 class="mt-3">Reviews</h2>
   <% if @bike.reviews.count == 0 %>
-    <p class="mb-3">No reviews yet.</p>
+    <p class="mb-3">This bike hasn't yet been reviewed.</p>
   <% else %>
     <%= render partial: 'reviews/display', collection: @bike.reviews, as: :review %>
   <% end %>
+
 </div>
