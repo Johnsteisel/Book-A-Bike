@@ -1,27 +1,14 @@
-.hover-show-child {
-  .row {
-    .col-8 {
-      .card-body {
-        .carrot {
-          .visible-on-hover {
-            visibility: hidden;
-          }
-        }
-      }
-    }
+.dad-hover {
+  .visible-on-hover {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    visibility: hidden;
   }
 }
 
-.hover-show-child:hover {
-  .row {
-    .col-8 {
-      .card-body {
-        .carrot {
-          .visible-on-hover {
-            visibility: visible;
-          }
-        }
-      }
-    }
+.dad-hover:hover {
+  .visible-on-hover {
+    visibility: visible;
   }
 }
