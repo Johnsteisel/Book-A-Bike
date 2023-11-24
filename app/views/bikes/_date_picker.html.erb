@@ -1,9 +1,14 @@
 <%= simple_form_for [bike, booking] do |f| %>
-  <%= f.input :booking_period,
-            as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_booked_dates: @booked_dates.to_json }, class: 'bg-info w-100' }%>
-  <%# <%= f.input :end_time,
-            as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_booked_dates: @booked_dates.to_json }, class: 'bg-info w-100' } %>
-  <%= f.submit 'Create booking', class: 'btn btn-primary' %>
+  <div class="d-flex align-items-center gap-3" data-controller="booking-submit">
+    <div style="width: 25rem" class="pt-3">
+      <%= f.input :booking_period,
+                label: false,
+                as: :string,
+                placeholder: 'Pick your dates here',
+                input_html: { data: { controller: "datepicker", datepicker_booked_dates: @booked_dates.to_json, booking_submit_target: "input", action: "change->booking-submit#check" }, class: 'bg-info w-100' }%>
+    </div>
+    <div class="">
+      <%= f.submit 'Create booking', data: { booking_submit_target: "button" }, class: 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>
