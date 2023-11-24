@@ -3,6 +3,6 @@
     <%= simple_form_for [bike, review] do |f| %>
       <%= f.input :rating, collection: 1..5, input_html: {class: 'bg-info'} %>
       <%= f.input :comment, input_html: {class: 'bg-info'} %>
-      <%= f.submit "Submit Review", class:"btn btn-dark"%>
+      <%= f.submit "Submit Review", class:"btn btn-secondary"%>
     <% end %>
   </div>
